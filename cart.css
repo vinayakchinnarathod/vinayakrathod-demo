@@ -1,0 +1,260 @@
+/* General reset and body styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Product Section */
+.products {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-card h2 {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #b71c1c;
+}
+
+/* Cart Page Styling */
+.cart-items {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.cart-item h2 {
+    font-size: 2em;
+    color: #333;
+}
+
+.cart-item p {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.checkout {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#checkout-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkout-button a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 600;
+    display: inline-block;
+    width: 100%;
+}
+
+#checkout-button:hover {
+    background-color: #2c6c2a;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.product-card {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 20px;
+    width: 300px;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: -35px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    padding: 8px 40px;
+    transform: rotate(45deg);
+    font-size: 0.9em;
+    font-weight: bold;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.price {
+    font-size: 1.5em;
+    color: #ff6b6b;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-info h2 {
+    color: #333;
+    margin: 10px 0;
+    font-size: 1.4em;
+}
+
+.product-info p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.buy-now-btn {
+    position: relative;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    padding: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+
+}
+
+.buy-now-btn a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 600;
+    display: inline-block;
+    width: 100%;
+}
+
+.buy-now-btn a:hover,
+.buy-now-btn a:visited,
+.buy-now-btn a:active,
+.buy-now-btn a:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.buy-now-btn:hover {
+    background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    justify-content: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .products {
+        gap: 20px;
+    }
+    
+    .product-card {
+        width: 280px;
+    }
+    
+    .product-card img {
+        height: 200px;
+    }
+}
