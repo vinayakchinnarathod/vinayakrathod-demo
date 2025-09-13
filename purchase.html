@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase History - Delicious Chocolates</title>
+    
+    <!-- Fonts and Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="purchase.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-candy-cane"></i>
+            Delicious Chocolates
+        </div>
+        <div class="nav-links">
+            <a href="business.html"><i class="fas fa-home"></i> Home</a>
+            <a href="#" class="active"><i class="fas fa-box"></i> Products</a>
+            <a href="cart-view.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Your Purchase History</h1>
+        
+        <div id="purchase-container" class="purchase-container">
+            <!-- Content will be dynamically loaded -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+            const container = document.getElementById('purchase-container');
+
+            if (purchaseHistory.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h2>No Purchases Yet</h2>
+                        <p>You haven't made any purchases. Check out our delicious collection!</p>
+                        <a href="business.html" class="browse-btn">Browse Products</a>
+                    </div>
+                `;
+            } else {
+                const purchaseHTML = purchaseHistory.map((purchase, index) => `
+                    <div class="purchase-card" data-aos="fade-up" data-aos-delay="${index * 100}">
+                        <div class="purchase-image">
+                            <img src="${purchase.image}" alt="${purchase.name}">
+                        </div>
+                        <div class="purchase-details">
+                            <h3>${purchase.name}</h3>
+                            <p class="price">$${purchase.price}</p>
+                            <p class="date">Purchased on: ${new Date(purchase.date).toLocaleDateString()}</p>
+                            <div class="status ${purchase.status.toLowerCase()}">${purchase.status}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                container.innerHTML = purchaseHTML;
+            }
+
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>
